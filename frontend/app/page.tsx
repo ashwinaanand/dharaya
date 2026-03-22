@@ -115,7 +115,7 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
               <div className="text-center mb-8">
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+                  <div className="w-16 h-16 bg-linear-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-2xl">🌍</span>
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function Home() {
       ) : (
         // MAIN APP
       {/* Sticky Navigation Bar */}
-      <nav className="sticky top-0 z-50 bg-gradient-to-r from-green-600 to-blue-600 shadow-lg">
+      <nav className="sticky top-0 z-50 bg-linear-to-r from-green-600 to-blue-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-3xl">🌍</span>
@@ -268,7 +268,7 @@ export default function Home() {
         {currentPage === 'home' && (
           <>
             {/* Hero Section */}
-            <section className="bg-gradient-to-br from-green-500 via-blue-500 to-purple-600 text-white py-24 px-4">
+            <section className="bg-linear-to-br from-green-500 via-blue-500 to-purple-600 text-white py-24 px-4">
               <div className="max-w-6xl mx-auto text-center">
                 <h2 className="text-5xl md:text-6xl font-bold mb-6">Monitor & Combat Environmental Pollution</h2>
                 <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
@@ -297,7 +297,7 @@ export default function Home() {
                 <h3 className="text-4xl font-bold text-white text-center mb-16">Why DHARAYA?</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {/* Feature Card 1 */}
-                  <div className="bg-gradient-to-br from-green-800 to-green-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
+                  <div className="bg-linear-to-br from-green-800 to-green-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
                     <div className="text-5xl mb-4">🌱</div>
                     <h4 className="text-2xl font-bold text-white mb-3">Easy Reporting</h4>
                     <p className="text-gray-200">
@@ -306,7 +306,7 @@ export default function Home() {
                   </div>
 
                   {/* Feature Card 2 */}
-                  <div className="bg-gradient-to-br from-blue-800 to-blue-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
+                  <div className="bg-linear-to-br from-blue-800 to-blue-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
                     <div className="text-5xl mb-4">📊</div>
                     <h4 className="text-2xl font-bold text-white mb-3">Real-time Analytics</h4>
                     <p className="text-gray-200">
@@ -315,7 +315,7 @@ export default function Home() {
                   </div>
 
                   {/* Feature Card 3 */}
-                  <div className="bg-gradient-to-br from-purple-800 to-purple-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
+                  <div className="bg-linear-to-br from-purple-800 to-purple-900 p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition">
                     <div className="text-5xl mb-4">🗺️</div>
                     <h4 className="text-2xl font-bold text-white mb-3">Pollution Heat Map</h4>
                     <p className="text-gray-200">
@@ -363,7 +363,7 @@ export default function Home() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 px-4 bg-gradient-to-r from-green-600 to-blue-600">
+            <section className="py-16 px-4 bg-linear-to-r from-green-600 to-blue-600">
               <div className="max-w-4xl mx-auto text-center">
                 <h3 className="text-3xl font-bold text-white mb-6">Ready to Make a Difference?</h3>
                 <p className="text-lg text-green-100 mb-8">
@@ -467,7 +467,7 @@ export default function Home() {
                   <button
                     onClick={handleReportPollution}
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-600 text-white font-bold py-3 px-4 rounded-lg transition transform hover:scale-105"
+                    className="w-full bg-linear-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 disabled:from-gray-600 disabled:to-gray-600 text-white font-bold py-3 px-4 rounded-lg transition transform hover:scale-105 shadow-lg"
                   >
                     {loading ? '⏳ Submitting...' : '📤 Submit Report & Earn Points'}
                   </button>

@@ -1,0 +1,71 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env*.example
+
+# Node modules and dependencies
+node_modules/
+npm-debug.log
+npm-debug.log.*
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+/dist
+/build
+/.next
+/out
+.turbo
+.turbopack
+
+# Logs
+logs/
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# MongoDb
+.mongodb/
+
+# Keys and secrets (extra protection)
+*.pem
+*.key
+*.cert
+*.crt
+*.p8
+*.p12
+secrets.json
+credentials.json
+
+# Sensitive files
+.env.production
+.env.staging
+config/secrets.js
+config/keys.js
+
+# IDE
+.vscode/settings.json
+.idea/

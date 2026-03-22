@@ -190,40 +190,27 @@ When submitting a pollution report, provide:
 
 ## Deployment
 
-### Frontend (Vercel)
-```bash
-# Vercel auto-detects Next.js projects
-npm i -g vercel
-vercel
-```
+For comprehensive step-by-step deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
-Set environment variable in Vercel dashboard:
-```
-NEXT_PUBLIC_BACKEND_URL=https://dharaya-backend.herokuapp.com
-```
+### Quick Reference
 
-### Backend (Render/Heroku)
+**Frontend: Vercel**
+- Create Vercel account and import from GitHub
+- Set `NEXT_PUBLIC_BACKEND_URL` environment variable
+- Auto-deploys on push to main branch
+- Result: `https://dharaya-xxx.vercel.app`
 
-**Create Procfile:**
-```
-web: node server.js
-```
+**Backend: Render**
+- Create Render Web Service from GitHub repository
+- Deploy from `dharaya` directory
+- Set environment variables: `PORT`, `MONGODB_URI`, `NODE_ENV`
+- Result: `https://dharaya-api.onrender.com`
 
-**Set environment variables on Render/Heroku:**
-```
-PORT=7777
-MONGODB_URI=<your-mongo-atlas-uri>
-NODE_ENV=production
-FRONTEND_URL=https://dharaya.vercel.app
-```
-
-**Deploy:**
-```bash
-# Heroku
-git push heroku main
-
-# Render - connect via Dashboard
-```
+**Database: MongoDB Atlas**
+- Create free M0 cluster on MongoDB Atlas
+- Copy connection string to Render environment
+- Seed with: `node dharaya/seed.js`
+- Includes 12 sample pollution reports
 
 ## Environment Variables
 

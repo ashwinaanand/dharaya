@@ -1,13 +1,13 @@
 ﻿'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Dashboard from './components/Dashboard';
 import PollutionHeatmap from './components/PollutionHeatmap';
 
 type PageType = 'home' | 'report' | 'dashboard' | 'heatmap';
 
 export default function Home() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentPage, setCurrentPage] = useState<PageType>('home');
   const [category, setCategory] = useState('air');
   const [location, setLocation] = useState('');
@@ -17,8 +17,53 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginError, setLoginError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const BACKEND_URL = 'http://localhost:7777';
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginLoading(true);
+    setLoginError('');
+
+    try {
+      if (!loginEmail || !loginPassword) {
+        setLoginError('Please fill in all fields');
+        setLoginLoading(false);
+        return;
+      }
+
+      if (!loginEmail.includes('@')) {
+        setLoginError('Please enter a valid email address');
+        setLoginLoading(false);
+        return;
+      }
+
+      // Simulate login - replace with actual backend call
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
+      // Success
+      setIsLoggedIn(true);
+      setLoginEmail('');
+      setLoginPassword('');
+      setCurrentPage('home');
+    } catch (err) {
+      setLoginError('Login failed. Please try again.');
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setLoginEmail('');
+    setLoginPassword('');
+    setLoginError('');
+  };
 
   const handleReportPollution = async () => {
     if (!category || !location || !description) {
@@ -62,7 +107,104 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <>
+      {!isLoggedIn ? (
+        // LOGIN PAGE
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
+          <div className="w-full max-w-md">
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+              <div className="text-center mb-8">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-2xl">🌍</span>
+                  </div>
+                </div>
+                <h1 className="text-4xl font-bold text-gray-800 mb-2">Welcome Back</h1>
+                <p className="text-gray-500 text-sm">Sign in to DHARAYA and continue protecting the environment</p>
+              </div>
+
+              <form onSubmit={handleLogin} className="space-y-5">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 text-gray-800 placeholder-gray-400"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <input
+                      id="password"
+                      type={showPassword ? 'text' : 'password'}
+                      value={loginPassword}
+                      onChange={(e) => setLoginPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 text-gray-800 placeholder-gray-400"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-3.5 text-gray-500 hover:text-gray-700 transition"
+                    >
+                      {showPassword ? '👁️' : '👁️‍🗨️'}
+                    </button>
+                  </div>
+                </div>
+
+                {loginError && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-sm text-red-700 font-medium">❌ {loginError}</p>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loginLoading}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-3 px-4 rounded-lg transition duration-200 shadow-md hover:shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
+                >
+                  {loginLoading ? (
+                    <>
+                      <span className="animate-spin">⏳</span> Signing in...
+                    </>
+                  ) : (
+                    <>
+                      🔐 Sign In
+                    </>
+                  )}
+                </button>
+              </form>
+
+              <div className="relative my-7">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-3 bg-white text-gray-500 font-medium">Demo Access</span>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                <p className="text-sm text-blue-800 font-medium">✨ Use any email and password to demo</p>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
+                <p>🔒 Your credentials are secure and encrypted</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        // MAIN APP
       {/* Sticky Navigation Bar */}
       <nav className="sticky top-0 z-50 bg-gradient-to-r from-green-600 to-blue-600 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -111,12 +253,12 @@ export default function Home() {
             >
               🗺️ Heat Map
             </button>
-            <Link
-              href="/login"
-              className="px-4 py-2 rounded-lg font-semibold transition text-white hover:bg-white/20 border border-white/30 hover:border-white"
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 rounded-lg font-semibold transition text-white hover:bg-red-600/50 border border-white/30 hover:border-red-400"
             >
-              🔐 Login
-            </Link>
+              🚪 Logout
+            </button>
           </div>
         </div>
       </nav>
@@ -376,5 +518,7 @@ export default function Home() {
         </div>
       </footer>
     </div>
+      )}
+    </>
   );
 }

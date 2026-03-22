@@ -204,10 +204,10 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        // MAIN APP
-      {/* Sticky Navigation Bar */}
-      <nav className="sticky top-0 z-50 bg-linear-to-r from-green-600 to-blue-600 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="min-h-screen bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
+          {/* Sticky Navigation Bar */}
+          <nav className="sticky top-0 z-50 bg-linear-to-r from-green-600 to-blue-600 shadow-lg">
+            <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-3xl">🌍</span>
             <h1 className="text-2xl font-bold text-white">DHARAYA</h1>
@@ -509,7 +509,6 @@ export default function Home() {
           </section>
         )}
       </main>
-
       {/* Footer */}
       <footer className="bg-slate-900 border-t border-slate-700 py-8 px-4 mt-12">
         <div className="max-w-6xl mx-auto text-center text-gray-400">
@@ -517,7 +516,7 @@ export default function Home() {
           <p className="text-sm">Together, we can build a healthier environment for everyone</p>
         </div>
       </footer>
-    </div>
+        </div>
       )}
     </>
   );

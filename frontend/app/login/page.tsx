@@ -63,7 +63,7 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-linear-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-2xl">🌍</span>
+                  <span className="text-2xl">🌍</span>
               </div>
             </div>
             <h1 className="text-4xl font-bold text-gray-800 mb-2">Welcome Back</h1>

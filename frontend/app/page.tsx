@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Dashboard from './components/Dashboard';
 import PollutionHeatmap from './components/PollutionHeatmap';
 
@@ -110,6 +111,12 @@ export default function Home() {
             >
               🗺️ Heat Map
             </button>
+            <Link
+              href="/login"
+              className="px-4 py-2 rounded-lg font-semibold transition text-white hover:bg-white/20 border border-white/30 hover:border-white"
+            >
+              🔐 Login
+            </Link>
           </div>
         </div>
       </nav>

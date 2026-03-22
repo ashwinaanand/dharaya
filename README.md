@@ -1,6 +1,30 @@
 # 🌍 DHARAYA - Environmental Pollution Monitoring Platform
 
-A full-stack web application for monitoring, reporting, and visualizing environmental pollution data in real-time.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/ashwinaanand/dharaya)](https://github.com/ashwinaanand/dharaya/issues)
+[![GitHub forks](https://img.shields.io/github/forks/ashwinaanand/dharaya)](https://github.com/ashwinaanand/dharaya/network)
+[![GitHub stars](https://img.shields.io/github/stars/ashwinaanand/dharaya)](https://github.com/ashwinaanand/dharaya/stargazers)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.1-black)](https://nextjs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-4.18.2-lightgrey)](https://expressjs.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-green)](https://www.mongodb.com/)
+
+A full-stack web application for monitoring, reporting, and visualizing environmental pollution data in real-time. Built with modern technologies and best practices for scalability and performance.
+
+## 📑 Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [API Endpoints](#api-endpoints)
+- [Database Schema](#database-schema)
+- [Dashboard Features](#dashboard-features)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Roadmap](#roadmap)
+- [Contact & Support](#contact--support)
 
 ## Features
 

@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or Discussion
+    url: https://github.com/ashwinaanand/dharaya/discussions
+    about: Ask questions and discuss ideas here
+  - name: Security Issue
+    url: mailto:security@example.com
+    about: Report security vulnerabilities privately
+
